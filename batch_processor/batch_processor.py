@@ -78,7 +78,7 @@ class BatchProcessor(BaseProcessor):
 
 if __name__ == '__main__':
     # Sleep 10 seconds, so in the future when stakeholders require performance improvement, you can fulfill it quickly
-    # by removing the sleep. Just kidding, sleep to wait MariaDB fully ready.
+    # by removing the sleep. Just kidding, necessary sleep to wait MariaDB fully ready.
     time.sleep(10)
     # Setup logging for the script
     logging.basicConfig(level=logging.INFO)

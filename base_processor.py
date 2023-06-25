@@ -27,7 +27,6 @@ class BaseProcessor:
         self._logger = logging.getLogger(LOGGER_NAME)
 
         # Get ENV VAR parameters of mariadb
-        # Get ENV VAR parameters of mariadb
         self.mariadb_host = os.environ["MARIADB_HOST"]
         self.mariadb_database = os.environ["MARIADB_DATABASE"]
         self.mariadb_user = os.environ["MARIADB_USER"]

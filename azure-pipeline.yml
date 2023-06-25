@@ -1,6 +1,6 @@
 variables:
-  azureContainerRegistry: Contoso.azurecr.io
-  azureSubscriptionEndpoint: Contoso
+  azureContainerRegistry: xxx.azurecr.io
+  azureSubscriptionEndpoint: xxx
 steps:
 - task: DockerCompose@0
   displayName: Container registry login
