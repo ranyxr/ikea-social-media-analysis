@@ -84,6 +84,7 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     # TODO: put the keywords in a DB table as configuration
     query_tags = ['IKEA']
+    # TODO: to filter out the posts that contain the blacklist_keywords
     blacklist_keywords = ['discount', 'gratis', '甩卖']
 
     batch_processor = BatchProcessor()
