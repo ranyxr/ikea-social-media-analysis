@@ -1,0 +1,52 @@
+version: "3.7"
+
+services:
+
+  mariadb:
+    image: "mariadb:10.7.3-focal"
+    networks:
+      - ikeabot-network
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: "yes"
+      MARIADB_DATABASE: "ikeabot"
+      MARIADB_USER: "ikeabot"
+      MARIADB_PASSWORD: "ikeabot"
+    volumes:
+      - type: bind
+        source: ./database/
+        target: /docker-entrypoint-initdb.d/
+
+  batch_processor:
+    build:
+      context: ./
+      dockerfile: ./batch_processor/Dockerfile
+    networks:
+      - ikeabot-network
+    depends_on:
+      - mariadb
+    environment:
+      MARIADB_DATABASE: "ikeabot"
+      MARIADB_USER: "ikeabot"
+      MARIADB_PASSWORD: "ikeabot"
+      MARIADB_HOST: "mariadb"
+      MASTODON_TOKEN: 'b7Lf5057M-6OaA7VvmDWELHp0bWUJWzFuacdn5_Paug'
+
+  streaming_processor:
+    build:
+      context: ./
+      dockerfile: ./streaming_processor/Dockerfile
+    networks:
+      - ikeabot-network
+    depends_on:
+      - mariadb
+    environment:
+      MARIADB_DATABASE: "ikeabot"
+      MARIADB_USER: "ikeabot"
+      MARIADB_PASSWORD: "ikeabot"
+      MARIADB_HOST: "mariadb"
+      MASTODON_TOKEN: 'b7Lf5057M-6OaA7VvmDWELHp0bWUJWzFuacdn5_Paug'
+
+
+networks:
+  ikeabot-network:
+    name: "ikeabot-network"
