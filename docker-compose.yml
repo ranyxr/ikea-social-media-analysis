@@ -29,7 +29,7 @@ services:
       MARIADB_USER: "ikeabot"
       MARIADB_PASSWORD: "ikeabot"
       MARIADB_HOST: "mariadb"
-      MASTODON_TOKEN: 'b7Lf5057M-6OaA7VvmDWELHp0bWUJWzFuacdn5_Paug'
+      MASTODON_TOKEN: 'your-mastodon-app-token'
 
   streaming_processor:
     build:
@@ -44,7 +44,7 @@ services:
       MARIADB_USER: "ikeabot"
       MARIADB_PASSWORD: "ikeabot"
       MARIADB_HOST: "mariadb"
-      MASTODON_TOKEN: 'b7Lf5057M-6OaA7VvmDWELHp0bWUJWzFuacdn5_Paug'
+      MASTODON_TOKEN: 'your-mastodon-app-token'
 
 
 networks:
